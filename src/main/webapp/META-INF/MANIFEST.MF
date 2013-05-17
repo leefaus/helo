@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Build-Time: 20130507-1218
+Build-Java: 1.6.0_43
+Build-OS: Mac OS X
+Build-Jdk: 1.6.0_43
+Built-By: lfaus
+Build-Maven: Maven ${maven.version}
+Build-Label: 1.1.10
+Created-By: Apache Maven
+Build-Path: /Users/lfaus/Projects/java/helo
+Build-User: lfaus
+
