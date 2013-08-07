@@ -52,9 +52,27 @@ public class UserTest {
                 logger.info(violation.getPropertyPath() + " => " + violation.getMessage());
             }
         }
+    }
 
-
-
+    @Test
+    public void testPreUserMethodValidation() {
+        try {
+            u.setLastName(null);
+            u.setFirstName("f");
+            u.setEmail("bob.f@somewhere.com");
+            User user = us.findUser(u);
+            fail("Expected " + MethodConstraintViolationException.class.getSimpleName() + " wasn't thrown.");
+            Assert.notNull(user);
+            u = null;
+            user = us.findUser(u);
+            fail("Expected " + MethodConstraintViolationException.class.getSimpleName() + " wasn't thrown.");
+            Assert.isNull(u);
+        } catch (MethodConstraintViolationException e) {
+            Set<MethodConstraintViolation<?>> violations = e.getConstraintViolations();
+            for (MethodConstraintViolation violation : violations) {
+                logger.info(violation.getPropertyPath() + " => " + violation.getMessage());
+            }
+        }
     }
 
 }

@@ -23,4 +23,8 @@ public class UserService {
         set.add(u);
         return set;
     }
+
+    public User findUser(@NotNull @Valid User user) {
+        return user;
+    }
 }
